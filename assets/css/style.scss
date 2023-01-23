@@ -169,6 +169,14 @@ header {
                 &:is(.selected-option) {
                     color: #CA0F16;
                 }
+                &:has(label){
+                    display: flex;
+                    justify-content: space-between;
+                    input {
+                        accent-color: #CA0F16;
+                    }
+                }
+
 
             }
 

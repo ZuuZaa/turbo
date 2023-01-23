@@ -139,6 +139,13 @@ header .navbar li:last-child:hover {
 .filter .select .dropdown li:is(.selected-option) {
   color: #CA0F16;
 }
+.filter .select .dropdown li:has(label) {
+  display: flex;
+  justify-content: space-between;
+}
+.filter .select .dropdown li:has(label) input {
+  accent-color: #CA0F16;
+}
 .filter .select:is(.selected) {
   border: 0.1rem solid #8f96ae;
 }
