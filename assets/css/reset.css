@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #F0F3F7;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input,
+textarea {
+    font-size: inherit;
+    border: none;
+    outline: none;
+    background: inherit;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+}

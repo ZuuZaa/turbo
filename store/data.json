@@ -1,0 +1,36 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "brand": "Kia",
+            "model": "Seltos",
+            "banType": "Offroader / SUV",
+            "odometer": 30000,
+            "odometerUnit": "km",
+            "color": "qara",
+            "price": 40000,
+            "currency": "azn",
+            "fuel": "benzin",
+            "gear": "arxa",
+            "transmission": "mexaniki",
+            "year": "2005",
+            "engineVolume": 500,
+            "enginePower": 150,
+            "ownerOrder": null,
+            "damage": null,
+            "sits": 5,
+            "credit": false,
+            "barter": false,
+            "note": null,
+            "supply": [
+                "ABS",
+                "Kondisioner",
+                "Lyuk"
+            ],
+            "images": [""],
+            "seller": "Hamlet",
+            "city": "Baki",
+            "phone": "00000000"
+        }
+    ]
+}

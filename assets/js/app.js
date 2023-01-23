@@ -1,0 +1,105 @@
+import { cars, cities } from "./utils.js";
+
+const selectBoxes = document.querySelectorAll(".select");
+
+const selected = (id, toggle = false) => {
+  selectBoxes.forEach((item) => {
+    if (item.id == id) {
+      if (toggle) {
+        item.classList.toggle("selected");
+      } else {
+        item.classList.add("selected");
+      }
+    } else {
+      item.classList.remove("selected");
+    }
+  });
+};
+
+const open = (id, toggle = false) => {
+  selectBoxes.forEach((item) => {
+    if (item.id == id) {
+      if (toggle) {
+        item.classList.toggle("open");
+        item.querySelector(".chevron").classList.toggle("rotated");
+      } else {
+        item.classList.add("open");
+        item.querySelector(".chevron").classList.add("rotated");
+      }
+    } else {
+      item.classList.remove("open");
+      item.querySelector(".chevron").classList.remove("rotated");
+    }
+  });
+};
+
+const resetItem = () => {
+  const listItem = document.createElement("li");
+  const crossIcon = document.createElement("i");
+  crossIcon.classList.add("fa-solid", "fa-xmark");
+  const resetSpan = document.createElement("span");
+  resetSpan.textContent = "Sıfırla";
+  listItem.append(crossIcon, resetSpan);
+  return listItem;
+};
+
+const dropdownRender = (list, selectBox, key) => {
+ const container = selectBox.querySelector(".dropdown");
+ const selected = selectBox.querySelector(".select-input").value;
+
+  container.innerHTML = "";
+  container.append(resetItem());
+  list.map((item) => {
+    if (typeof item[key] != "object") {
+        const listItem = document.createElement("li");
+        listItem.classList.add(item[key] == selected ? "selected-option" : "dropdown-option");
+        listItem.textContent = item[key];
+        container.append(listItem);
+    }
+  });
+  
+};
+
+selectBoxes.forEach((box) => {
+  box.addEventListener("click", () => {
+    if (!box.classList.contains("disabled")) {
+      selected(box.id);
+      open(box.id);
+    }
+    switch (box.id) {
+      case "brand-select":
+        dropdownRender(cars, box, "brand");
+        break;
+      case "model-select":
+        dropdownRender(cars, box, "models");
+        break;
+      case "city-select":
+        dropdownRender(cities, box, "cityName");
+        break;
+      default:
+        console.log("default");
+        break;
+    }
+  });
+
+  box.querySelector(".chevron").addEventListener("click", (e) => {
+    e.stopPropagation();
+    selected(box.id, true);
+    open(box.id, true);
+  });
+});
+
+
+// const filteringForm = document.querySelector(".filtering-form")
+// filteringForm.addEventListener("submit", (e)=>{
+//     e.preventDefault();
+//     const fieldsForFilter ={};
+//     fieldsForFilter.brand = brandInput.value
+//     console.log("submit", fieldsForFilter)
+// })
+// // brandSelect.addEventListener("click", (e)=>{
+// //     document.querySelector(".placeholder").textContent = "Markanı yazın"
+// // })
+// // brandSelect.addEventListener("input", ()=>{
+// //     document.querySelector(".placeholder").textContent = "Marka"
+// // })

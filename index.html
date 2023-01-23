@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Turbo.Az</title>
+
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+
+    <header> 
+        <div class="header-info">
+            <div class="container">
+                <div class="header-info__content">
+                    <ul class="related-links">
+                        <li>
+                            <a href="https://tap.az/">Tap.az</a>
+                        </li>
+                        <li>
+                            <a href="https://bina.az/">Bina.az</a>
+                        </li>
+                        <li>
+                            <a href="https://boss.az/">Boss.az</a>
+                        </li>
+                    </ul>
+                    <ul class="right-part">
+                        <li class="support">
+                            Dəstək:
+                            <ul>
+                                <li>
+                                    <a href="tel:+994125990801">(012) 599-08-01</a>
+                                </li>
+                                <li>
+                                    <a href="tel:+994125057755">(012) 505-77-55</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Yardım</a>
+                        </li>
+                        <li>
+                            <a href="#">RU</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-heart"></i>Seçilmişlər</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-circle-user"></i></i>Giriş</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li class="logo">
+                            <a href="#">Turbo.az</a>
+                        </li>
+                        <li>
+                            <a href="#">Bütün elanlar</a>
+                        </li>
+                        <li>
+                            <a href="#">Avtosalonlar</a>
+                        </li>
+                        <li>
+                            <a href="#">Ehtiyat hissələr və aksesuarlar </a>
+                        </li>
+                        <li>
+                            <a href="./add_car.html"><i class="fa-solid fa-plus"></i>Yeni Elan</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="filter">
+            <div class="container">
+                <form class="filtering-form">
+                    <div class="requirements">
+                        <div class="form-group col-4">
+                            <div class="select" id="brand-select">
+                                <input type="text" class="select-input" id="brand" name="brand">
+                                <label for="brand" class="placeholder brand-label">Marka</label>
+                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                                <ul class="dropdown" id="brand-dropdown"></ul>
+                            </div>
+                            <div class="select disabled" id="model-select">
+                                <input type="text" class="select-input" id="model" disabled>
+                                <label for="model" class="placeholder">Model</label>
+                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                                <ul class="dropdown" id="model-dropdown"></ul>
+                            </div>
+                            <div class="driven-select">
+                                <ul class="radio-group">
+                                    <li>
+                                        <input name="driven" type="radio" id="all-driven" class="radio" value="all">
+                                        <label for="all-driven">Hamısı</label>
+                                    </li>
+                                    <li>
+                                        <input name="driven" type="radio" id="not-driven" class="radio"
+                                            value="not driven">
+                                        <label for="all-driven">Yeni</label>
+                                    </li>
+                                    <li>
+                                        <input name="driven" type="radio" id="driven" class="radio" value="driven">
+                                        <label for="all-driven">Sürülmüş</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="select" id="city-select">
+                                <input type="text" class="select-input" id="city" disabled>
+                                <label for="city" class="placeholder">Şəhər</label>
+                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                                <ul class="dropdown" id="city-dropdown"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group col-4">
+
+                        </div>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="axtar">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+    <script src="assets/js/utils.js" type="module"></script>
+    <script src="assets/js/app.js" type="module"></script>
+
+
+
+    <!-- <form class="brand-select">
+        <input class="ipn" type="text" name="" id="">
+        <span></span>
+
+        <ul class="dropdown" id="brand">
+
+            <div class="selectopt">Sıfırla</div>
+            <li class="selectopt">
+                <input class="brand" name="brand" type="radio" id="Abarth" value="Abarth" />
+                <label for="Abarth" class="option">Abarth</label>
+            </li>
+            <li class="selectopt">
+                <input class="brand" name="brand" type="radio" id="Acura" value="Acura" />
+                <label for="Acura" class="option">Acura</label>
+            </li>
+            <li class="selectopt">
+                <input class="brand" name="brand" type="radio" id="Aprilia" value="Aprilia" />
+                <label for="Aprilia" class="option">Aprilia</label>
+            </li>
+            <li class="selectopt">
+                <input class="brand" name="brand" type="radio" id="ATV" value="ATV" />
+                <label for="ATV" class="option">ATV</label>
+            </li>
+            <li class="selectopt">
+                <input class="brand" name="brand" type="radio" id="Abarth" value="Abarth" />
+                <label for="Abarth" class="option">Abarth</label>
+
+            </li>
+
+        </ul> -->
+    <!-- 
+        <script>
+
+
+
+            const inp = document.querySelector(".ipn")
+            const dropdown = document.querySelector(".dropdown")
+
+            document.querySelector("form").addEventListener("input", (e) => {
+                console.log(e.target.value)
+            })
+
+            inp.addEventListener("click", () => {
+                dropdown.classList.toggle("open");
+                console.log("click")
+            })
+
+            inp.addEventListener("input", () => {
+                dropdown.classList.add("open");
+
+                const filtered = cars.filter(car => car.brand.toLocaleLowerCase().includes(inp.value.toLocaleLowerCase()));
+                console.log(inp.value, filtered)
+                dropdown.innerHTML = ""
+                filtered.map(item => dropdown.innerHTML += `<div class="option">${item.brand}</div>`)
+                console.log(filtered)
+            })
+        </script>
+ -->
+
+
+</body>
+
+</html>
