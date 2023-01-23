@@ -53,7 +53,7 @@ const dropdownRender = (list, selectBox, key) => {
     container.append(resetItem());
     list.map((item) => {
         const listItem = document.createElement("li");
-        listItem.classList.add(item[key] == selected.value ? "selected-option" : "dropdown-option");
+        listItem.classList.add(item[key] == selected.value.trim() ? "selected-option" : "dropdown-option");
         listItem.textContent = item[key];
         listItem.addEventListener("click", (e) => {
             selected.value = e.target.textContent;
@@ -90,16 +90,20 @@ selectBoxes.forEach((box) => {
                 dropdownRender(cities, box, "cityName");
                 break;
             case "model-select":
-                const models = cars.find(car => car.brand == document.querySelector("#brand").value).models;
+                const brand = document.querySelector("#brand").value.trim();
+                if(brand){
+                const models = cars.find(car => car.brand == brand).models;
                 document.querySelector("#model-dropdown").innerHTML = "";
                 document.querySelector("#model-dropdown").append(resetItem());
                 models.map(model => {
                     const listItem = document.createElement("li");
-                    // listItem.classList.add(item[key] == selected.value ? "selected-option" : "dropdown-option");
+                    //listItem.classList.add(item[key] == selected.value ? "selected-option" : "dropdown-option");
                     listItem.textContent = model;
                     document.querySelector("#model-dropdown").append(listItem)
                 }
                 )
+                }
+
                 break
             default:
                 console.log("default");
