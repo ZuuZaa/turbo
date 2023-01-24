@@ -121,11 +121,7 @@ const dropdownToggleHandler = (box, toogle) => {
 }
 
     selectBoxes.forEach(box => {
-        // if (box.querySelector(".select-input").value != "") {
-        //     box.classList.add("selected");
-        //     console.log("select click")
-        // }
-
+        
         box.addEventListener("input", () => {
             const inputValue = box.querySelector(".select-input").value.trim().toLocaleLowerCase();
             const filteredArray = cars.filter(car => car.brand.toLocaleLowerCase().includes(inputValue))
@@ -142,7 +138,13 @@ const dropdownToggleHandler = (box, toogle) => {
             dropdownToggleHandler(box, true);
         });
     });
+const radioGroupDriven = document.querySelectorAll(".radio");
 
+document.querySelectorAll(".radio").forEach(btn => {
+        btn.addEventListener("click", ()=>{
+            console.log(btn.checked)
+        })
+    })
 
 // const filteringForm = document.querySelector(".filtering-form")
 // filteringForm.addEventListener("submit", (e)=>{

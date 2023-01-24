@@ -160,4 +160,38 @@ header .navbar li:last-child:hover {
 .filter .disabled {
   background: #F5F6F8;
   color: #BCC1D0;
+}
+.filter .radio-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  color: #8D94AD;
+  height: 100%;
+}
+.filter .radio-group li {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border: 0.1rem solid #DFE3E8;
+}
+.filter .radio-group li:first-child {
+  border-radius: 0.7rem 0 0 0.7rem;
+}
+.filter .radio-group li:last-child {
+  border-radius: 0 0.7rem 0.7rem 0;
+}
+.filter .radio-group li:has(input[type=radio]:checked) {
+  background: #CA0F16;
+  border: 0.1rem solid #CA0F16;
+  color: #fff;
+}
+.filter .radio-group li label {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter .radio-group li input[type=radio] {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
