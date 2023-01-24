@@ -6,14 +6,17 @@ const dataForFilter = {};
 
 const selected = (id, toggle = false) => {
     selectBoxes.forEach((item) => {
-        if (item.id == id || item.querySelector(".select-input").value) {
-            if (toggle) {
-                item.classList.toggle("selected");
+        if (item.querySelector(".select-input").value) item.classList.add("selected");
+        else {
+            if (item.id == id ) {
+                if (toggle) {
+                    item.classList.toggle("selected");
+                } else {
+                    item.classList.add("selected");
+                }
             } else {
-                item.classList.add("selected");
+                 item.classList.remove("selected");
             }
-        } else {
-            item.classList.remove("selected");
         }
     });
 };
@@ -96,8 +99,6 @@ const modelsSelector = () => {
 }
 
 
-
-
 const dropdownToggleHandler = (box, toogle) => {
     if (!box.classList.contains("disabled")) {
         selected(box.id, toogle);
@@ -117,16 +118,14 @@ const dropdownToggleHandler = (box, toogle) => {
             console.log("default");
             break;
     }
-
 }
 
-
     selectBoxes.forEach(box => {
+        // if (box.querySelector(".select-input").value != "") {
+        //     box.classList.add("selected");
+        //     console.log("select click")
+        // }
 
-        if (box.querySelector(".select-input").value != "") {
-            box.classList.add("selected");
-            console.log("select click")
-        }
         box.addEventListener("input", () => {
             const inputValue = box.querySelector(".select-input").value.trim().toLocaleLowerCase();
             const filteredArray = cars.filter(car => car.brand.toLocaleLowerCase().includes(inputValue))
@@ -134,6 +133,7 @@ const dropdownToggleHandler = (box, toogle) => {
         });
 
         box.addEventListener("click", () => {
+
             dropdownToggleHandler(box, false)
         });
 
