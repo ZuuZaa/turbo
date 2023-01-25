@@ -1,9 +1,11 @@
+.container {
+  width: 60%;
+  margin: auto;
+}
+
 header {
   font-size: 1.5rem;
   line-height: 1.2;
-}
-header .container {
-  padding-inline: 2rem;
 }
 header ul {
   display: flex;
@@ -69,9 +71,21 @@ header .navbar li:last-child:hover {
 .filter .form-group {
   display: grid;
   gap: 2rem;
+  padding-block: 1rem;
 }
 .filter .col-4 {
   grid-template-columns: repeat(4, 1fr);
+}
+.filter input {
+  padding: 1.6rem 1rem;
+}
+.filter .placeholder {
+  color: #8D94AD;
+  position: absolute;
+  z-index: 1;
+  transition: all 0.5s;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 .filter .select {
   background: #fff;
@@ -87,10 +101,12 @@ header .navbar li:last-child:hover {
 }
 .filter .select .select-input {
   flex-grow: 1;
-  padding: 1rem;
   border-radius: 0.7rem 0 0 0.7rem;
   display: inline-block;
-  height: 100%;
+}
+.filter .select .placeholder {
+  top: 50%;
+  left: 10%;
 }
 .filter .select .chevron {
   color: #8D94AD;
@@ -106,21 +122,12 @@ header .navbar li:last-child:hover {
 .filter .select .chevron:is(.rotated) .fa-solid {
   transform: rotate(180deg);
 }
-.filter .select .placeholder {
-  color: #8D94AD;
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  z-index: 3;
-  transition: all 0.5s;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
 .filter .select .dropdown {
   display: none;
   position: absolute;
   top: 130%;
   left: 0;
+  z-index: 3;
   padding-top: 1rem;
   background: #fff;
   border-radius: 0.7rem;
@@ -194,4 +201,85 @@ header .navbar li:last-child:hover {
 }
 .filter .radio-group li input[type=radio] {
   display: none;
+}
+.filter .price-select {
+  display: flex;
+  position: relative;
+}
+.filter .price-select input {
+  background-color: #fff;
+  color: #333;
+  border-radius: 0.7rem;
+  width: 50%;
+  border: 0.1rem solid #DFE3E8;
+}
+.filter .price-select input:is(#min-price) {
+  border-radius: 0.7rem 0 0 0.7rem;
+}
+.filter .price-select input:is(#max-price) {
+  border-radius: 0 0.7rem 0.7rem 0;
+}
+.filter .price-select .placeholder {
+  top: 50%;
+}
+.filter .price-select .placeholder:is(.min-price-label) {
+  left: 10%;
+}
+.filter .price-select .placeholder:is(.max-price-label) {
+  left: 60%;
+}
+.filter .currency-credit-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+.filter .currency-credit-container .currency-select input {
+  width: 100%;
+}
+.filter .currency-credit-container .checkbox {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  border: 0.1rem solid #DFE3E8;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.filter .currency-credit-container .checkbox input[type=checkbox] {
+  display: none;
+}
+.filter .year-select-container {
+  display: flex;
+}
+.filter .year-select-container .select:has(#min-year) {
+  border-radius: 0.7rem 0 0 0.7rem;
+}
+.filter .year-select-container .select:has(#max-year) {
+  border-radius: 0 0.7rem 0.7rem 0;
+}
+.filter .year-select-container .select-input {
+  width: 50%;
+}
+.filter .year-select-container .select-input:is(#min-year) {
+  border-radius: 0.7rem 0 0 0.7rem;
+}
+.filter .year-select-container .select-input:is(#max-year) {
+  border-radius: 0 0.7rem 0.7rem 0;
+}
+.filter .form-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+.filter .form-footer input[type=reset] {
+  color: #8f96ae;
+  margin-right: 3rem;
+}
+.filter .form-footer input[type=submit] {
+  background: #CA0F16;
+  color: #fff;
+  padding-inline: 3rem;
+  border-radius: 0.7rem;
+}
+.filter .form-footer input[type=submit]:hover {
+  background: hsl(358deg, 86%, 38%);
 }/*# sourceMappingURL=style.css.map */

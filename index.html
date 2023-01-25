@@ -93,50 +93,94 @@
         <section class="filter">
             <div class="container">
                 <form class="filtering-form">
-                    <div class="requirements">
-                        <div class="form-group col-4">
-                            <div class="select" id="brand-select">
-                                <input type="text" class="select-input" id="brand" name="brand">
-                                <label for="brand" class="placeholder brand-label">Marka</label>
-                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
-                                <ul class="dropdown" id="brand-dropdown"></ul>
-                            </div>
-                            <div class="select disabled" id="model-select">
-                                <input type="text" class="select-input" id="model" disabled>
-                                <label for="model" class="placeholder">Model</label>
-                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
-                                <ul class="dropdown" id="model-dropdown"></ul>
-                            </div>
-                            <div class="driven-select">
-                                <ul class="radio-group">
-                                    <li>
-                                        <input name="driven" type="radio" id="all-driven" value="all">
-                                        <label class="radio" for="all-driven">Hamısı</label>
-                                    </li>
-                                    <li>
-                                        <input name="driven" type="radio" id="not-driven"
-                                            value="not driven">
-                                        <label class="radio" for="not-driven">Yeni</label>
-                                    </li>
-                                    <li>
-                                        <input name="driven" type="radio" id="driven" value="driven">
-                                        <label class="radio" for="driven">Sürülmüş</label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="select" id="city-select">
-                                <input type="text" class="select-input" id="city" disabled>
-                                <label for="city" class="placeholder">Şəhər</label>
-                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
-                                <ul class="dropdown" id="city-dropdown"></ul>
-                            </div>
+                    <div class="form-group col-4">
+                        <div class="select" id="brand-select">
+                            <input type="text" class="select-input" id="brand" name="brand">
+                            <label for="brand" class="placeholder brand-label">Marka</label>
+                            <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                            <ul class="dropdown" id="brand-dropdown"></ul>
                         </div>
-                        <div class="form-group col-4">
-
+                        <div class="select disabled" id="model-select">
+                            <input type="text" class="select-input" id="model" disabled>
+                            <label for="model" class="placeholder">Model</label>
+                            <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                            <ul class="dropdown" id="model-dropdown"></ul>
+                        </div>
+                        <div class="driven-select">
+                            <ul class="radio-group">
+                                <li>
+                                    <input name="driven" type="radio" id="all-driven" value="all">
+                                    <label class="radio" for="all-driven">Hamısı</label>
+                                </li>
+                                <li>
+                                    <input name="driven" type="radio" id="not-driven" value="not driven">
+                                    <label class="radio" for="not-driven">Yeni</label>
+                                </li>
+                                <li>
+                                    <input name="driven" type="radio" id="driven" value="driven">
+                                    <label class="radio" for="driven">Sürülmüş</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="select" id="city-select">
+                            <input type="text" class="select-input" id="city" disabled>
+                            <label for="city" class="placeholder">Şəhər</label>
+                            <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                            <ul class="dropdown" id="city-dropdown"></ul>
                         </div>
                     </div>
-                    <div class="submit">
-                        <input type="submit" value="axtar">
+                    <div class="form-group col-4">
+                        <div class="price-select">
+                            <input type="number" class="price-input" id="min-price">
+                            <label for="min-price" class="placeholder min-price-label">Qiymət, min.</label>
+                            <input type="number" class="price-input" id="max-price">
+                            <label for="max-price" class="placeholder max-price-label">max.</label>
+                        </div>
+                        <div class="currency-credit-container">
+                            <div class="currency-select select not-selected" id="currency-select">
+                                <input type="text" class="select-input" id="currency" name="currency" value="AZN">
+                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                                <ul class="dropdown" id="currency-dropdown">
+                                    <li>AZN</li>
+                                    <li>USD</li>
+                                    <li>EUR</li>
+                                </ul>
+                            </div>
+                            <div class="credit-checkbox checkbox">
+                                <label for="credit">Kredit</label>
+                                <input type="checkbox" id="credit" name="credit">
+                            </div>
+                            <div class="barter-checkbox checkbox">
+                                <label for="barter">Barter</label>
+                                <input type="checkbox" id="barter" name="barter">
+                            </div>
+                        </div>
+                        <div class="select" id="ban-select">
+                            <input type="text" class="select-input" id="ban">
+                            <label for="ban" class="placeholder">Ban növü</label>
+                            <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                            <ul class="dropdown" id="ban-dropdown"></ul>
+                        </div>
+                        <div class="year-select-container">
+                            <div class="select" id="min-year-select">
+                                <input type="text" class="select-input" id="min-year">
+                                <label for="min-year" class="placeholder">İl, min</label>
+                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                                <ul class="dropdown" id="min-year-dropdown"></ul>
+                            </div>
+                            <div class="select" id="max-year-select">
+                                <input type="text" class="select-input" id="max-year">
+                                <label for="max-year" class="placeholder">max</label>
+                                <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
+                                <ul class="dropdown" id="max-year-dropdown"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <div class="submit">
+                            <input type="reset" value="Sıfırla">
+                            <input type="submit" value="Elanları göstər">
+                        </div>
                     </div>
                 </form>
             </div>

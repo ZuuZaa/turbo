@@ -6,7 +6,7 @@ const dataForFilter = {};
 
 const selected = (id, toggle = false) => {
     selectBoxes.forEach((item) => {
-        if (item.querySelector(".select-input").value) item.classList.add("selected");
+        if (item.querySelector(".select-input").value && !item.classList.contains("not-selected")) item.classList.add("selected");
         else {
             if (item.id == id ) {
                 if (toggle) {

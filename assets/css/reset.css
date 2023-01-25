@@ -27,11 +27,19 @@ textarea {
     border: none;
     outline: none;
     background: inherit;
+    cursor: pointer;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+input[type=number] {
+  appearance: textfield;
+}
 
-.container {
-    width: 60%;
-    margin: auto;
+label {
+    cursor: pointer;
 }
