@@ -77,6 +77,9 @@ header .navbar li:last-child:hover {
   grid-template-columns: repeat(4, 1fr);
 }
 .filter input {
+  padding: 2rem 1rem 1.2rem;
+}
+.filter input[name=currency] {
   padding: 1.6rem 1rem;
 }
 .filter .placeholder {
@@ -139,6 +142,8 @@ header .navbar li:last-child:hover {
 .filter .select .dropdown li {
   padding: 0.9rem 1rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 .filter .select .dropdown li:hover {
   background: #F0F3F7;
@@ -146,8 +151,12 @@ header .navbar li:last-child:hover {
 .filter .select .dropdown li:is(.selected-option) {
   color: #CA0F16;
 }
+.filter .select .dropdown li:is(.reset-dropdown) .fa-solid {
+  color: #CA0F16;
+  font-size: 1.8rem;
+  margin-right: 0.8rem;
+}
 .filter .select .dropdown li:has(label) {
-  display: flex;
   justify-content: space-between;
 }
 .filter .select .dropdown li:has(label) input {
@@ -156,13 +165,13 @@ header .navbar li:last-child:hover {
 .filter .select:is(.selected) {
   border: 0.1rem solid #8f96ae;
 }
-.filter .select:is(.open) .dropdown {
-  display: block;
-}
-.filter .select:is(.typing) .placeholder {
+.filter .select:is(.selected):not(.clear-trasform) .placeholder {
   top: 20%;
   left: 1rem;
   font-size: 1.2rem;
+}
+.filter .select:is(.open) .dropdown {
+  display: block;
 }
 .filter .disabled {
   background: #F5F6F8;
@@ -269,6 +278,7 @@ header .navbar li:last-child:hover {
 .filter .form-footer {
   display: flex;
   justify-content: flex-end;
+  padding-top: 1rem;
 }
 .filter .form-footer input[type=reset] {
   color: #8f96ae;

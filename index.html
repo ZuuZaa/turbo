@@ -12,14 +12,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Turbo.Az</title>
 
-
-    <style>
-
-    </style>
 </head>
 
 <body>
-
 
     <header>
         <div class="header-info">
@@ -109,7 +104,7 @@
                         <div class="driven-select">
                             <ul class="radio-group">
                                 <li>
-                                    <input name="driven" type="radio" id="all-driven" value="all">
+                                    <input name="driven" type="radio" id="all-driven" value="all" checked>
                                     <label class="radio" for="all-driven">Hamısı</label>
                                 </li>
                                 <li>
@@ -123,7 +118,7 @@
                             </ul>
                         </div>
                         <div class="select" id="city-select">
-                            <input type="text" class="select-input" id="city" disabled>
+                            <input type="text" class="select-input" id="city">
                             <label for="city" class="placeholder">Şəhər</label>
                             <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
                             <ul class="dropdown" id="city-dropdown"></ul>
@@ -138,7 +133,7 @@
                         </div>
                         <div class="currency-credit-container">
                             <div class="currency-select select not-selected" id="currency-select">
-                                <input type="text" class="select-input" id="currency" name="currency" value="AZN">
+                                <input type="text" class="select-input" id="currency" name="currency" value="AZN" disabled>
                                 <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
                                 <ul class="dropdown" id="currency-dropdown">
                                     <li>AZN</li>
@@ -189,7 +184,6 @@
 
 
 
-    <script src="assets/js/utils.js" type="module"></script>
     <script src="assets/js/app.js" type="module"></script>
 
 
