@@ -9,7 +9,6 @@ const selected = (id, toggle = false) => {
     selectBoxes.forEach((item) => {
         if (item.querySelector(".select-input").value && !item.classList.contains("not-selected")) item.classList.add("selected");
         else {
-            //console.log("else", id,item.querySelector(".select-input").value)
             if (item.id == id) {
                 if (toggle) {
                     item.classList.toggle("selected");
@@ -171,7 +170,11 @@ const checkboxButton = (box) => {
 // };
 
 const dropdownToggleHandler = (box, toogle) => {
-
+    if (!box.classList.contains("disabled")) {
+        selected(box.id, toogle);
+        open(box.id, toogle);
+    }
+    
     switch (box.id) {
         case "brand-select":
             resetItem(box);
@@ -208,34 +211,20 @@ const dropdownToggleHandler = (box, toogle) => {
             console.log("default");
             break;
     }
-    if (!box.classList.contains("disabled")) {
-        selected(box.id, toogle);
-        open(box.id, toogle);
-    }
+
 }
 
 const formReset = form => {
     form.reset();
-    selectBoxes.forEach(box => {
-        box.id = "currency-select" && box.classList.add("not-selected")
-        selected(box.id);
-        open(box.id)
+    document.querySelectorAll(".input-container").forEach(box => {
+        box.id == "currency-select" && box.classList.add("not-selected")
+        box.classList.remove("selected", "open", "typing")
+        box.id == "model-select" && box.classList.add("disabled");
+        box.id == "barter-checkbox" && box
     })
-
-    const dataForFilter = {};
-    Object.keys(dataForFilter).forEach(key => {
-        delete dataForFilter[key];
-    });
-
-    console.log(document.querySelector("#model-select"))
-    
-    //document.querySelector("#model-select").classList.add("disabled");
-   // document.querySelector("#model").setAttribute("disabled", "");
-    document.querySelectorAll(".input-wrapper").forEach(item =>item.classList.remove("selected"))
+    document.querySelector("#model").setAttribute("disabled", "");
     document.querySelector("#credit-checkbox").classList.remove("selected-checkbox");
     document.querySelector("#barter-checkbox").classList.remove("selected-checkbox");
-
-    console.log(dataForFilter)
 }
 
 
@@ -244,28 +233,27 @@ selectBoxes.forEach(box => {
 
     box.addEventListener("input", () => {
         box.classList.add("typing");
-
-
-        //const inputValue = box.querySelector(".select-input").value.trim().toLocaleLowerCase();
-        // switch (box.id) {
-        //     case "brand-select":
-        //         const filteredCars = cars.filter(car => car.brand.toLocaleLowerCase().startsWith(inputValue))
-        //         dropdownRender(filteredCars, box, "brand")
-        //         break;
-        //     case "city-select":
-        //         const filteredCities = cities.filter(item => item.cityName.toLocaleLowerCase().startsWith(inputValue))
-        //         dropdownRender(filteredCities, box, "cityName")
-        //         break;
-        //     case "model-select":
-        //         modelsSelector(inputValue.toLocaleLowerCase());
-        //         break;
-        //     default:
-        //         console.log("default");
-        //         break;
-        // }
+    //     const inputValue = box.querySelector(".select-input").value.trim().toLocaleLowerCase();
+    //     switch (box.id) {
+    //         case "brand-select":
+    //             const filteredCars = cars.filter(car => car.brand.toLocaleLowerCase().startsWith(inputValue))
+    //             dropdownRender(filteredCars, box, "brand")
+    //             break;
+    //         case "city-select":
+    //             const filteredCities = cities.filter(item => item.cityName.toLocaleLowerCase().startsWith(inputValue))
+    //             dropdownRender(filteredCities, box, "cityName")
+    //             break;
+    //         case "model-select":
+    //             modelsSelector(inputValue.toLocaleLowerCase());
+    //             break;
+    //         default:
+    //             console.log("default");
+    //             break;
+    //     }
     });
 
-    box.addEventListener("click", (e) => {
+    box.addEventListener("click", () => {
+        
         dropdownToggleHandler(box, false)
     });
 
@@ -275,43 +263,116 @@ selectBoxes.forEach(box => {
     });
 });
 
-
-
+document.querySelector(".price-select").addEventListener("click", (e) => {
     document.querySelectorAll(".price-input").forEach(item => {
-        item.addEventListener("click", (e)=>{
-            if(!item.value) e.target.parentNode.id != item.parentNode.classList.add("selected")
-        })
-    })
+        if (item.id == e.target.id) item.parentNode.classList.add("selected")
+        else {
+            if (!item.value) item.parentNode.classList.remove("selected")
+        }
 
-    // target.classList.add("selected") 
-    // if (target.id == "min-price-box") {
-    //     parent.querySelector("#max-price-box").classList.remove("selected");
-    // }
-    // else {
-    //     parent.querySelector("#min-price-box").classList.remove("selected");
-    // }
-    
+    })
+})
+
 
 barterChekbox.addEventListener("click", () => checkboxButton(barterChekbox))
 creditChekbox.addEventListener("click", () => checkboxButton(creditChekbox))
+
+
+const cardCreator = item => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    const cardImg = document.createElement("div");
+    cardImg.classList.add("card-img");
+    const img = document.createElement("img");
+    img.src = item.images[0];
+    cardImg.append(img);
+    const cardContent = document.createElement("div");
+    cardContent.classList.add("card-content");
+    const carPrice = document.createElement("h2");
+    carPrice.classList.add("card-price");
+    carPrice.textContent = `${item.price} ${item.currency}`
+    const carBrand = document.createElement("h3");
+    carBrand.classList.add("card-brand");
+    carBrand.textContent =`${item.brand} ${item.model}`
+    const carYear = document.createElement("p");
+    carYear.classList.add("card-year");
+    carYear.textContent = `${item.year} il, ${item.odometer} km`
+    const city = document.createElement("small");
+    city.textContent = item.city
+    cardContent.append(carPrice, carBrand, carYear, city)
+    card.append(cardImg, cardContent)
+    return card;
+}
+
+const dataRender = list => {
+    const container = document.querySelector(".cars-container");
+    container.innerHTML = ""
+    list.forEach(item => {
+        const card = cardCreator(item)
+        container.append(card)
+    })
+}
+
+dataRender(data);
+
 
 const filteringForm = document.querySelector(".filtering-form")
 filteringForm.addEventListener("submit", (e) => {
 
     e.preventDefault();
+    console.log(!document.querySelector(".currency-select").classList.contains("not-selected"))
 
-    let filteredArr = [];
-    Object.keys(dataForFilter).forEach(key => {
-        filteredArr = [...filteredArr, ...data.filter(car => car[key] == dataForFilter[key])]
-    })
-    new Set(filteredArr).forEach(
-        item => console.log(item)
-    )
+    const brand = document.querySelector("#brand").value;
+    const models = document.querySelector("#model").value.split(", ");
+    const driven = document.querySelector("input[name=driven]:checked").value;
+    const cities = document.querySelector("#city").value.split(", ");
+    const minPrice = +document.querySelector("#min-price").value;
+    const maxPrice = +document.querySelector("#max-price").value;
+    const currency = !document.querySelector(".currency-select").classList.contains("not-selected") && document.querySelector("#currency").value;
+    const credit = document.querySelector("#credit").checked;
+    const barter = document.querySelector("#barter").checked;
+    const ban = document.querySelector("#ban").value.split(", ");
+    const minYear = document.querySelector("#min-year").value;
+    const maxYear = document.querySelector("#max-year").value;
 
+    const brandFiltered = data.filter(car => car.brand == brand)
+    const modelFiltered = brandFiltered.filter(car => models.includes(car.model));
+    const drivenFiltered = driven == "driven" ? data.filter(car => car.odometer != 0) : driven == "not driven" ? data.filter(car => car.odometer == 0) : []
+    const priceFiltered =
+        minPrice != 0 && maxPrice != 0 ? data.filter(car => car.price >= minPrice && car.price <= maxPrice)
+            : minPrice == 0 && maxPrice != 0 ? data.filter(car => car.price <= maxPrice)
+                : minPrice != 0 && maxPrice == 0 ? data.filter(car => car.price >= minPrice)
+                    : []
+    const cityFiltered = data.filter(car => cities.includes(car.city));
+    const currencyFiltered = data.filter(car => car.currency == currency)
+    const creditFiltered = credit ? data.filter(car => car.credit == true) : []
+    const barterFiltered = barter ? data.filter(car => car.barter == true) : []
+    const banFiltered = data.filter(car => ban.includes(car.banType));
+    const yearsFiltered =
+        minYear != 0 && maxYear != 0 ? data.filter(car => +car.year >= minYear && +car.year <= maxYear)
+            : minYear == 0 && maxYear != 0 ? data.filter(car => car.year <= maxYear)
+                : minYear != 0 && maxYear == 0 ? data.filter(car => car.year >= minYear)
+                    : []
+
+    let filteredArr = [
+        ...brandFiltered,
+        ...modelFiltered,
+        ...drivenFiltered,
+        ...cityFiltered,
+        ...priceFiltered,
+        ...currencyFiltered,
+        ...creditFiltered,
+        ...barterFiltered,
+        ...banFiltered,
+        ...yearsFiltered
+    ];
+
+    const dataForRender = new Set(filteredArr)
+    dataRender(dataForRender);
+    console.log(dataForRender)
     formReset(e.target)
 })
 
 filteringForm.addEventListener("reset", (e) => {
     formReset(e.target)
 })
-

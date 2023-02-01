@@ -255,7 +255,7 @@ export const cars = [
     },
     {
         brand: "Jaguar",
-        models: []
+        models: ["E-Pace","F-Pace", "F-Pace R","F-Type","F-Type R","S-Type","XE","XF","XJ L"]
     },
     {
         brand: "Jeep",
@@ -360,7 +360,7 @@ export const cars = [
     },
     {
         brand: "Mercedes",
-        models: []
+        models: [""]
     },
     {
         brand: "Mercedes-Maybach",

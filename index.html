@@ -89,13 +89,13 @@
             <div class="container">
                 <form class="filtering-form">
                     <div class="form-group col-4">
-                        <div class="select" id="brand-select">
+                        <div class="select input-container" id="brand-select">
                             <input type="text" class="select-input" id="brand" name="brand">
                             <label for="brand" class="placeholder brand-label">Marka</label>
                             <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
                             <ul class="dropdown" id="brand-dropdown"></ul>
                         </div>
-                        <div class="select disabled" id="model-select">
+                        <div class="select disabled input-container" id="model-select">
                             <input type="text" class="select-input" id="model" disabled>
                             <label for="model" class="placeholder">Model</label>
                             <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
@@ -117,7 +117,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="select" id="city-select">
+                        <div class="select input-container" id="city-select">
                             <input type="text" class="select-input" id="city">
                             <label for="city" class="placeholder">Şəhər</label>
                             <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
@@ -126,17 +126,17 @@
                     </div>
                     <div class="form-group col-4">
                         <div class="price-select">
-                            <div class="input-wrapper" id="min-price-box">
+                            <div class="input-wrapper input-container" id="min-price-box">
                                 <input type="number" class="price-input" id="min-price">
                                 <label for="min-price" class="placeholder min-price-label">Qiymət, min.</label>
                             </div>
-                            <div class="input-wrapper" id="max-price-box">
+                            <div class="input-wrapper input-container" id="max-price-box">
                                 <input type="number" class="price-input" id="max-price">
                                 <label for="max-price" class="placeholder max-price-label">max.</label>
                             </div>
                         </div>
                         <div class="currency-credit-container">
-                            <div class="currency-select select not-selected" id="currency-select">
+                            <div class="currency-select select not-selected input-container" id="currency-select">
                                 <input type="text" class="select-input" id="currency" name="currency" value="AZN"
                                     disabled>
                                 <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
@@ -164,20 +164,20 @@
                                 <input type="checkbox" id="barter" name="barter">
                             </div>
                         </div>
-                        <div class="select" id="ban-select">
+                        <div class="select input-container" id="ban-select">
                             <input type="text" class="select-input" id="ban">
                             <label for="ban" class="placeholder">Ban növü</label>
                             <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
                             <ul class="dropdown" id="ban-dropdown"></ul>
                         </div>
                         <div class="year-select-container">
-                            <div class="select" id="min-year-select">
+                            <div class="select input-container" id="min-year-select">
                                 <input type="text" class="select-input" id="min-year">
                                 <label for="min-year" class="placeholder">İl, min</label>
                                 <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
                                 <ul class="dropdown" id="min-year-dropdown"></ul>
                             </div>
-                            <div class="select" id="max-year-select">
+                            <div class="select input-container" id="max-year-select">
                                 <input type="text" class="select-input" id="max-year">
                                 <label for="max-year" class="placeholder">max</label>
                                 <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
@@ -192,6 +192,12 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </section>
+        <section class="cars-section">
+            <div class="container cars-container">
+                
+
             </div>
         </section>
     </main>
