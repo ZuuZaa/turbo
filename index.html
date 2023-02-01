@@ -126,26 +126,40 @@
                     </div>
                     <div class="form-group col-4">
                         <div class="price-select">
-                            <input type="number" class="price-input" id="min-price">
-                            <label for="min-price" class="placeholder min-price-label">Qiymət, min.</label>
-                            <input type="number" class="price-input" id="max-price">
-                            <label for="max-price" class="placeholder max-price-label">max.</label>
+                            <div class="input-wrapper">
+                                <input type="number" class="price-input" id="min-price">
+                                <label for="min-price" class="placeholder min-price-label">Qiymət, min.</label>
+                            </div>
+                            <div class="input-wrapper">
+                                <input type="number" class="price-input" id="max-price">
+                                <label for="max-price" class="placeholder max-price-label">max.</label>
+                            </div>
                         </div>
                         <div class="currency-credit-container">
                             <div class="currency-select select not-selected" id="currency-select">
-                                <input type="text" class="select-input" id="currency" name="currency" value="AZN" disabled>
+                                <input type="text" class="select-input" id="currency" name="currency" value="AZN"
+                                    disabled>
                                 <span class="chevron"><i class="fa-sharp fa-solid fa-chevron-down"></i></span>
                                 <ul class="dropdown" id="currency-dropdown">
-                                    <li>AZN</li>
-                                    <li>USD</li>
-                                    <li>EUR</li>
+                                    <li>
+                                        <label for="azn">AZN</label>
+                                        <input id="azn" type="radio" value="AZN" name="currency" checked>
+                                    </li>
+                                    <li>
+                                        <label for="usd">USD</label>
+                                        <input id="usd" type="radio" value="USD" name="currency">
+                                    </li>
+                                    <li>
+                                        <label for="eur">EUR</label>
+                                        <input id="eur" type="radio" value="EUR" name="currency">
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="credit-checkbox checkbox">
+                            <div class="credit-checkbox checkbox" id="credit-checkbox">
                                 <label for="credit">Kredit</label>
                                 <input type="checkbox" id="credit" name="credit">
                             </div>
-                            <div class="barter-checkbox checkbox">
+                            <div class="barter-checkbox checkbox" id="barter-checkbox">
                                 <label for="barter">Barter</label>
                                 <input type="checkbox" id="barter" name="barter">
                             </div>

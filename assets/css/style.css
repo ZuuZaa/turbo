@@ -3,6 +3,16 @@
   margin: auto;
 }
 
+@media screen and (max-width: 1500px) {
+  .container {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    width: 90%;
+  }
+}
 header {
   font-size: 1.5rem;
   line-height: 1.2;
@@ -140,38 +150,52 @@ header .navbar li:last-child:hover {
   overflow: scroll;
 }
 .filter .select .dropdown li {
-  padding: 0.9rem 1rem;
   cursor: pointer;
+}
+.filter .select .dropdown li:has(.checkbox-label) {
   display: flex;
-  align-items: center;
+  padding-right: 0.9rem;
+}
+.filter .select .dropdown li label {
+  display: inline-block;
+  padding: 0.9rem 1rem;
+}
+.filter .select .dropdown li label:not(.checkbox-label) {
+  width: 100%;
+}
+.filter .select .dropdown li label:is(.checkbox-label) {
+  flex-grow: 1;
+}
+.filter .select .dropdown li input[type=radio] {
+  display: none;
+}
+.filter .select .dropdown li input[type=checkbox]:checked {
+  accent-color: #CA0F16;
+}
+.filter .select .dropdown li:has(input:checked) {
+  color: #CA0F16;
 }
 .filter .select .dropdown li:hover {
   background: #F0F3F7;
 }
-.filter .select .dropdown li:is(.selected-option) {
-  color: #CA0F16;
+.filter .select .dropdown li:is(.reset-dropdown) {
+  padding: 0.9rem 1rem;
 }
 .filter .select .dropdown li:is(.reset-dropdown) .fa-solid {
   color: #CA0F16;
   font-size: 1.8rem;
   margin-right: 0.8rem;
 }
-.filter .select .dropdown li:has(label) {
-  justify-content: space-between;
-}
-.filter .select .dropdown li:has(label) input {
-  accent-color: #CA0F16;
-}
 .filter .select:is(.selected) {
   border: 0.1rem solid #8f96ae;
 }
-.filter .select:is(.selected):not(.clear-trasform) .placeholder {
+.filter .select:is(.open) .dropdown {
+  display: block;
+}
+.filter .select:is(.typing) .placeholder {
   top: 20%;
   left: 1rem;
   font-size: 1.2rem;
-}
-.filter .select:is(.open) .dropdown {
-  display: block;
 }
 .filter .disabled {
   background: #F5F6F8;
@@ -215,26 +239,44 @@ header .navbar li:last-child:hover {
   display: flex;
   position: relative;
 }
-.filter .price-select input {
+.filter .price-select .input-wrapper {
   background-color: #fff;
   color: #333;
   border-radius: 0.7rem;
   width: 50%;
   border: 0.1rem solid #DFE3E8;
 }
-.filter .price-select input:is(#min-price) {
+.filter .price-select .input-wrapper:has(#min-price) {
   border-radius: 0.7rem 0 0 0.7rem;
 }
-.filter .price-select input:is(#max-price) {
+.filter .price-select .input-wrapper:has(#min-price) input {
+  border-radius: 0.7rem 0 0 0.7rem;
+}
+.filter .price-select .input-wrapper:has(#max-price) {
   border-radius: 0 0.7rem 0.7rem 0;
 }
-.filter .price-select .placeholder {
+.filter .price-select .input-wrapper:has(#max-price) input {
+  border-radius: 0 0.7rem 0.7rem 0;
+}
+.filter .price-select .input-wrapper:is(.selected) {
+  border: 0.1rem solid #8f96ae;
+}
+.filter .price-select .input-wrapper:is(.typing) .placeholder {
+  top: 20%;
+  left: 1rem;
+  font-size: 1.2rem;
+}
+.filter .price-select .input-wrapper input {
+  display: inline-block;
+  width: 100%;
+}
+.filter .price-select .input-wrapper .placeholder {
   top: 50%;
 }
-.filter .price-select .placeholder:is(.min-price-label) {
+.filter .price-select .input-wrapper .placeholder:is(.min-price-label) {
   left: 10%;
 }
-.filter .price-select .placeholder:is(.max-price-label) {
+.filter .price-select .input-wrapper .placeholder:is(.max-price-label) {
   left: 60%;
 }
 .filter .currency-credit-container {
@@ -247,12 +289,19 @@ header .navbar li:last-child:hover {
 }
 .filter .currency-credit-container .checkbox {
   background-color: #fff;
-  padding: 1rem;
   border-radius: 0.7rem;
   border: 0.1rem solid #DFE3E8;
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+.filter .currency-credit-container .checkbox:is(.selected-checkbox) {
+  border: 0.1rem solid #CA0F16;
+  background: hsl(358deg, 86%, 93%);
+  color: #CA0F16;
+}
+.filter .currency-credit-container .checkbox label {
+  padding: 1rem;
 }
 .filter .currency-credit-container .checkbox input[type=checkbox] {
   display: none;
@@ -292,4 +341,18 @@ header .navbar li:last-child:hover {
 }
 .filter .form-footer input[type=submit]:hover {
   background: hsl(358deg, 86%, 38%);
+}
+
+@media screen and (max-width: 1200px) {
+  .filter .col-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 500px) {
+  .filter .col-4 {
+    grid-template-columns: 1fr;
+  }
+  .filter .col-4 label.radio {
+    height: 5rem;
+  }
 }/*# sourceMappingURL=style.css.map */
