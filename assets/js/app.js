@@ -202,7 +202,7 @@ const dropdownToggleHandler = (box, toogle) => {
             break
         case "currency-select":
             box.querySelector("#currency").value = box.querySelector("input:checked").value;
-            
+
             box.querySelector(".dropdown").addEventListener("click", () => box.classList.remove("not-selected"))
         default:
             console.log("default");
@@ -228,8 +228,10 @@ const formReset = form => {
     });
 
     console.log(document.querySelector("#model-select"))
-   // document.querySelector("#model-select").classList.add("disabled");
-    document.querySelector("#model").setAttribute("disabled", "");
+    
+    //document.querySelector("#model-select").classList.add("disabled");
+   // document.querySelector("#model").setAttribute("disabled", "");
+    document.querySelectorAll(".input-wrapper").forEach(item =>item.classList.remove("selected"))
     document.querySelector("#credit-checkbox").classList.remove("selected-checkbox");
     document.querySelector("#barter-checkbox").classList.remove("selected-checkbox");
 
@@ -273,9 +275,23 @@ selectBoxes.forEach(box => {
     });
 });
 
-document.querySelector("#min-price").addEventListener(
-    "click",()=> document.querySelector("#min-price").classList.add("selected", "typing")
-)
+
+
+    document.querySelectorAll(".price-input").forEach(item => {
+        item.addEventListener("click", (e)=>{
+            if(!item.value) e.target.parentNode.id != item.parentNode.classList.add("selected")
+        })
+    })
+
+    // target.classList.add("selected") 
+    // if (target.id == "min-price-box") {
+    //     parent.querySelector("#max-price-box").classList.remove("selected");
+    // }
+    // else {
+    //     parent.querySelector("#min-price-box").classList.remove("selected");
+    // }
+    
+
 barterChekbox.addEventListener("click", () => checkboxButton(barterChekbox))
 creditChekbox.addEventListener("click", () => checkboxButton(creditChekbox))
 

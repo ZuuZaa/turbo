@@ -619,7 +619,7 @@ export const cars = [
 ]
 
 export const cities = [
-    "Ağcəbədi",
+    "Ağcabədi",
     "Ağdam",
     "Ağdas",
     "Ağstafa",
@@ -686,7 +686,7 @@ export const cities = [
     "Yevlax",
     "Zaqatala",
     "Zəngilan",
-    "ZZərdab"
+    "Zərdab"
 ]
 
 export const years = [

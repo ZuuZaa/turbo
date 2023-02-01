@@ -261,7 +261,7 @@ header .navbar li:last-child:hover {
 .filter .price-select .input-wrapper:is(.selected) {
   border: 0.1rem solid #8f96ae;
 }
-.filter .price-select .input-wrapper:is(.typing) .placeholder {
+.filter .price-select .input-wrapper:is(.selected) .placeholder {
   top: 20%;
   left: 1rem;
   font-size: 1.2rem;

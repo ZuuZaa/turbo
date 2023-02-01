@@ -338,16 +338,13 @@ header {
 
             &:is(.selected) {
                 border: .1rem solid #8f96ae;
-            }
 
-            &:is(.typing) {
                 .placeholder {
                     top: 20%;
                     left: 1rem;
                     font-size: 1.2rem;
                 }
             }
-
 
             input {
 
