@@ -358,13 +358,14 @@ header .navbar li:last-child:hover {
 }
 .cars-section .cars-container .card {
   width: 24rem;
-  height: 34rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 30rem;
   border-radius: 7px;
   margin-block: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 .cars-section .cars-container .card .card-img {
-  height: 73%;
+  height: 66%;
 }
 .cars-section .cars-container .card .card-img img {
   width: 100%;
@@ -399,6 +400,10 @@ header .navbar li:last-child:hover {
   font-size: 1.2rem;
   font-weight: normal;
   color: rgb(114, 114, 114);
+}
+.cars-section .cars-container .card:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
 }
 
 @media screen and (max-width: 1200px) {
