@@ -109,18 +109,15 @@ const checkboxListItem = (box, item) => {
 
     const listItem = document.createElement("li");
     listItem.classList.add("select-checkbox");
-
     const label = document.createElement("label");
     label.setAttribute("for", item.toLocaleLowerCase().replace(" ", "-"));
     label.classList.add("checkbox-label");
     label.textContent = item;
-
     const checkbox = document.createElement("input");
     checkbox.setAttribute("type", "checkbox");
     checkbox.id = item.toLocaleLowerCase().replace(" ", "-");
     checkbox.setAttribute("value", item);
     checkbox.checked = box.querySelector(".select-input").value.includes(item);
-
     listItem.addEventListener("click", (e) => {
         const checkedArr = []
         e.stopPropagation();
@@ -128,7 +125,6 @@ const checkboxListItem = (box, item) => {
         box.querySelector(".select-input").value = checkedArr.join(", ");
     })
     listItem.append(label, checkbox);
-
     return listItem
 }
 
@@ -225,6 +221,7 @@ const formReset = form => {
     document.querySelector("#model").setAttribute("disabled", "");
     document.querySelector("#credit-checkbox").classList.remove("selected-checkbox");
     document.querySelector("#barter-checkbox").classList.remove("selected-checkbox");
+    
 }
 
 
@@ -253,7 +250,6 @@ selectBoxes.forEach(box => {
     });
 
     box.addEventListener("click", () => {
-        
         dropdownToggleHandler(box, false)
     });
 
@@ -289,13 +285,13 @@ const cardCreator = item => {
     const cardContent = document.createElement("div");
     cardContent.classList.add("card-content");
     const carPrice = document.createElement("h2");
-    carPrice.classList.add("card-price");
-    carPrice.textContent = `${item.price} ${item.currency}`
+    carPrice.classList.add("car-price");
+    carPrice.textContent = `${item.price} ${item.currency.toUpperCase()}`
     const carBrand = document.createElement("h3");
-    carBrand.classList.add("card-brand");
+    carBrand.classList.add("car-brand");
     carBrand.textContent =`${item.brand} ${item.model}`
     const carYear = document.createElement("p");
-    carYear.classList.add("card-year");
+    carYear.classList.add("car-year");
     carYear.textContent = `${item.year} il, ${item.odometer} km`
     const city = document.createElement("small");
     city.textContent = item.city
@@ -332,8 +328,8 @@ filteringForm.addEventListener("submit", (e) => {
     const credit = document.querySelector("#credit").checked;
     const barter = document.querySelector("#barter").checked;
     const ban = document.querySelector("#ban").value.split(", ");
-    const minYear = document.querySelector("#min-year").value;
-    const maxYear = document.querySelector("#max-year").value;
+    const minYear = +document.querySelector("#min-year").value;
+    const maxYear = +document.querySelector("#max-year").value;
 
     const brandFiltered = data.filter(car => car.brand == brand)
     const modelFiltered = brandFiltered.filter(car => models.includes(car.model));
@@ -369,7 +365,11 @@ filteringForm.addEventListener("submit", (e) => {
 
     const dataForRender = new Set(filteredArr)
     dataRender(dataForRender);
-    console.log(dataForRender)
+    console.log(dataForRender.size)
+
+    const size = dataForRender.size !=0 ? `${dataForRender.size} elan tapıldı:` : "Seçilmiş göstəricilərə uyğun elan tapılmadı."
+    document.querySelector(".size").textContent = "";
+    document.querySelector(".size").textContent = size;
     formReset(e.target)
 })
 

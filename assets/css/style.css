@@ -345,27 +345,60 @@ header .navbar li:last-child:hover {
 
 .cars-section .container {
   padding-block: 3rem;
+}
+.cars-section .container .size {
+  color: #212c3a;
+  font-size: 1.8rem;
+}
+.cars-section .cars-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 1rem;
+  justify-content: space-around;
+  gap: 1.2rem;
 }
-.cars-section .container .card {
+.cars-section .cars-container .card {
   width: 24rem;
   height: 34rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 7px;
   margin-block: 1rem;
 }
-.cars-section .container .card .card-img {
-  height: 70%;
+.cars-section .cars-container .card .card-img {
+  height: 73%;
 }
-.cars-section .container .card .card-img img {
+.cars-section .cars-container .card .card-img img {
   width: 100%;
   height: 100%;
   border-radius: 0.7rem 0.7rem 0 0;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.cars-section .cars-container .card .card-content {
+  padding: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.cars-section .cars-container .card .card-content .car-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+.cars-section .cars-container .card .card-content .car-brand {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #212c3a;
+  line-height: 17px;
+  margin-bottom: 0.1rem;
+}
+.cars-section .cars-container .card .card-content .car-year {
+  font-size: 1.4rem;
+  margin-bottom: 0.1rem;
+}
+.cars-section .cars-container .card .card-content small {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: rgb(114, 114, 114);
 }
 
 @media screen and (max-width: 1200px) {
